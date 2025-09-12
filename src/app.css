@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/forms';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/optional/presets';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/catppuccin';
+@import '@skeletonlabs/skeleton/themes/terminus';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url("$lib/assets/fonts/InterVariable.woff2") format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local("Arial");
+  ascent-override: 89.79%;
+  descent-override: 22.36%;
+  line-gap-override: 0.00%;
+  size-adjust: 107.89%;
+}
+
+
+
+:root {
+  --base-font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --heading-font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --heading-font-weight: 400;
+}
+
+@layer base {
+  html {
+    overflow-y: scroll;
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+  }
+
+  
+  @supports (scrollbar-gutter: stable) {
+    html {
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+  }
+
+  body {
+    background-image:
+    radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 20%, transparent) 0px, transparent 30%),
+    radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 9%, transparent) 0px, transparent 15%),
+    radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 20%);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  table {
+    @apply overflow-scroll;
+  }
+}
