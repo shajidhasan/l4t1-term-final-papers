@@ -32,7 +32,7 @@
 									<h6 class="shrink-0 text-sm font-medium">
 										Set {set.number}
 									</h6>
-									<div class="ml-2 flex items-center gap-2 overflow-x-auto md:ml-4">
+									<div class="-mb-3 ml-2 flex items-center gap-2 overflow-x-auto pb-3 md:ml-4">
 										{#each topics as topic}
 											<a
 												href="/{courseCode}/{slugify(topic)}"
