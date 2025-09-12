@@ -8,6 +8,7 @@
 			Built with 💖 by
 			<a
 				href="https://sh4jid.me"
+				target="_blank"
 				class="hover:text-primary-600-400 text-surface-950-50 font-medium"
 			>
 				sh4jid
@@ -15,6 +16,7 @@
 		</span>
 		<a
 			href="https://github.com/shajidhasan/l4t1-term-final-papers"
+			target="_blank"
 			class="hover:text-primary-600-400 text-surface-800-200 font-medium"
 		>
 			GitHub
