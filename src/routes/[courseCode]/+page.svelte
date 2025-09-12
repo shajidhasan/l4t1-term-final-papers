@@ -37,10 +37,22 @@
 	<CourseHeader {course} />
 
 	<div class="p-4 md:p-6">
-		<Tabs contentBase="mt-10" value={group} onValueChange={(e) => (group = e.value)} fluid>
+		<Tabs
+			contentBase="mt-10"
+			value={group}
+			onValueChange={(e) => (group = e.value)}
+			listJustify="justify-center"
+			listBorder=""
+		>
 			{#snippet list()}
 				{#each batches as batch}
-					<Tabs.Control labelBase="py-2 hover:bg-primary-500/50 rounded-base" value={batch}>
+					<Tabs.Control
+						base="transition-colors"
+						stateInactive="px-4 py-2 rounded-base preset-filled-surface-100-900 hover:preset-filled-surface-200-800"
+						stateActive="px-4 py-2 rounded-base {getGradientForString(batch)}"
+						labelBase=""
+						value={batch}
+					>
 						<span class="text-xs md:text-base">
 							<span class="hidden sm:inline"> '</span><span>
 								{batch}
