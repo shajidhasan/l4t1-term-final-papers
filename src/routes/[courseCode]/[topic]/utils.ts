@@ -15,7 +15,7 @@ export const getGroupsByTopic = (topic: string, courseCode: string) => {
     const questions: Question[] = []
     const papers = papersCollection[courseCode]
 
-    if (!papers) return { batches: [], grouped: [] }
+    if (!papers) return []
 
     papers.forEach(paper => {
         paper.paper.sections.forEach(section => {
@@ -29,22 +29,26 @@ export const getGroupsByTopic = (topic: string, courseCode: string) => {
         })
     })
 
-    const batches: string[] = []
-    const grouped: Question[][] = []
+    const groups: { batch: string, questions: Question[] }[] = []
 
     questions.forEach(question => {
         const batch = question.id.split('-')[1]
-        if (!batches.includes(batch)) {
-            batches.push(batch)
-            grouped.push([])
+
+        const group = groups.find(group => group.batch === batch)
+        if (group) {
+            group.questions.push(question)
+        } else {
+            const newGroup = {
+                batch,
+                questions: [question]
+            }
+            groups.push(newGroup)
         }
-        const index = batches.indexOf(batch)
-        grouped[index].push(question)
     })
 
-    batches.sort((a, b) => b.localeCompare(a));
+    groups.sort((a, b) => b.batch.localeCompare(a.batch))
 
-    return { batches, grouped }
+    return groups
 }
 
 

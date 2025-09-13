@@ -22,7 +22,7 @@
 		return (topic ?? '').replaceAll(' ', '_').toLowerCase();
 	};
 
-	const { batches, grouped } = $derived(getGroupsByTopic(topic, courseCode));
+	const groups = $derived(getGroupsByTopic(topic, courseCode));
 
 	let tab: 'sets' | 'questions' = $state('sets');
 </script>
@@ -51,17 +51,30 @@
 	</div>
 	<div class="">
 		<Tabs
-			listJustify="justify-center"
 			value={tab}
 			onValueChange={(e) => (tab = e.value as typeof tab)}
+			listJustify="justify-center"
+			listBorder=""
 		>
 			{#snippet list()}
-				<Tabs.Control labelBase="py-2 hover:bg-primary-500/50 rounded-base px-4" value="sets"
-					>Sets</Tabs.Control
+				<Tabs.Control
+					base="transition-colors"
+					stateInactive="px-4 py-2 rounded-base preset-filled-surface-100-900 hover:preset-filled-surface-200-800"
+					stateActive="px-4 py-2 rounded-base {getGradientForString('Sets')}"
+					labelBase=""
+					value="sets"
 				>
-				<Tabs.Control labelBase="py-2 hover:bg-primary-500/50 rounded-base px-4" value="questions"
-					>Questions</Tabs.Control
+					Sets
+				</Tabs.Control>
+				<Tabs.Control
+					base="transition-colors"
+					stateInactive="px-4 py-2 rounded-base preset-filled-surface-100-900 hover:preset-filled-surface-200-800"
+					stateActive="px-4 py-2 rounded-base {getGradientForString('Questions')}"
+					labelBase=""
+					value="questions"
 				>
+					Questions
+				</Tabs.Control>
 			{/snippet}
 			{#snippet content()}
 				<Tabs.Panel value="sets" classes="mx-auto mb-12 flex max-w-4xl flex-col gap-4 p-4 lg:p-6">
@@ -103,12 +116,12 @@
 					classes="mx-auto mb-12 flex max-w-4xl flex-col gap-8 p-4 lg:p-6"
 					value="questions"
 				>
-					{#each batches as batch, index}
+					{#each groups as group, index}
 						<div class="space-y-6">
 							<div class="flex items-end justify-between">
 								<h4 class="h5 relative inline-block">
 									<span class="font-semibold">
-										'{batch} Batch
+										'{group.batch} Batch
 									</span>
 
 									<div
@@ -118,12 +131,12 @@
 									></div>
 								</h4>
 								<div>
-									{grouped[index].reduce((acc, question) => (acc += question.marks), 0)} marks
+									{group.questions.reduce((acc, question) => (acc += question.marks), 0)} marks
 								</div>
 							</div>
 
 							<div class="space-y-4">
-								{#each grouped[index] as question}
+								{#each group.questions as question}
 									<div
 										class="card preset-filled-surface-100-900 border-surface-200-800 card-hover divide-surface-200-800 block divide-y overflow-hidden border-[1px]"
 									>
