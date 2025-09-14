@@ -2,8 +2,7 @@
 	import { page } from '$app/state';
 
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
-	import Home from '@lucide/svelte/icons/home';
-	import Search from '@lucide/svelte/icons/search';
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 
 	import CourseNotFound from '$lib/components/CourseNotFound.svelte';
 	import FloatingAnchor from '$lib/components/FloatingAnchor.svelte';
@@ -13,6 +12,7 @@
 	import { getAvailableBatches } from '$lib/papers';
 	import { getGradientForString } from '$lib/utilities';
 	import CourseHeader from '$lib/components/CourseHeader.svelte';
+	import { goto } from '$app/navigation';
 
 	const courseCode = $derived(page.params.courseCode as string);
 	const course = $derived(courses.find((c) => c.code === courseCode));
@@ -72,9 +72,9 @@
 		</Tabs>
 	</div>
 
-	<FloatingAnchor href="/{courseCode}/search">
-		<Search class="size-4 md:size-6" />
-		<span class="">Search</span>
+	<FloatingAnchor onclick={() => goto('/', { replaceState: true })}>
+		<ArrowLeft class="size-4 md:size-6" />
+		<span>Back</span>
 	</FloatingAnchor>
 {:else}
 	<CourseNotFound />
