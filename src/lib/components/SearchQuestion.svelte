@@ -30,7 +30,12 @@
 	class="card preset-filled-surface-100-900 border-surface-200-800 card-hover divide-surface-200-800 block divide-y overflow-hidden border-[1px]"
 >
 	<Accordion collapsible padding="p-2" spaceY="space-y-4">
-		<Accordion.Item value={question.id} leadBase="mb-auto" controlHover="hover:bg-primary-500/10">
+		<Accordion.Item
+			contentBase="overflow-x-auto w-full"
+			controlHover="hover:bg-primary-500/10"
+			leadBase="mb-auto hidden sm:inline-block"
+			value={question.id}
+		>
 			{#snippet lead()}
 				<span
 					class="badge preset-filled-surface-200-800 px-2"
@@ -39,8 +44,19 @@
 				>
 			{/snippet}
 			{#snippet control()}
-				<p class="prose dark:prose-invert max-w-full flex-1 text-xs sm:text-sm md:text-base">
-					<RenderMarkdown markdown={highlighted} figureFilter />
+				<div class="mb-2 sm:hidden">
+					<span
+						class="badge preset-filled-surface-200-800 px-2"
+						class:bg-green-600={mark === 'G'}
+						class:bg-yellow-600={mark === 'Y'}
+					>
+						{number} ({letter})
+					</span>
+				</div>
+				<p
+					class="prose dark:prose-invert max-w-full flex-1 overflow-hidden text-xs sm:text-sm md:text-base"
+				>
+					<RenderMarkdown markdown={question.text} figureFilter />
 					<span class="badge preset-tonal-secondary my-2 text-xs">'{batch} Batch</span>
 				</p>
 			{/snippet}

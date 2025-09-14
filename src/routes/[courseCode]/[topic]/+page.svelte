@@ -85,21 +85,19 @@
 							class="card preset-filled-surface-100-900 border-surface-200-800 card-hover divide-surface-200-800 block divide-y overflow-hidden border-[1px]"
 						>
 							<header class="preset-filled-surface-200-800 p-4">
-								<div class="flex items-center">
-									<div class="flex items-center">
-										<h6 class="text-sm font-semibold">
-											'{set.batch} Batch
-										</h6>
-										<div class="ml-2 flex flex-wrap items-center gap-2 md:ml-4">
-											{#each topics as topic}
-												<a
-													href="/{courseCode}/{slugify(topic)}"
-													class="chip {getGradientForString(topic ?? 'Default')}"
-												>
-													{topic ?? 'Unknown'}
-												</a>
-											{/each}
-										</div>
+								<div class="flex items-start">
+									<h6 class="shrink-0 text-sm font-medium">
+										'{set.batch} Batch
+									</h6>
+									<div class="-mb-3 ml-2 flex items-center gap-2 overflow-x-auto pb-3 md:ml-4">
+										{#each topics as topic}
+											<a
+												href="/{courseCode}/{slugify(topic)}"
+												class="chip {getGradientForString(topic ?? 'Default')}"
+											>
+												{topic ?? 'Unknown'}
+											</a>
+										{/each}
 									</div>
 								</div>
 							</header>
