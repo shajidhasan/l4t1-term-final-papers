@@ -25,7 +25,7 @@ export const GRADIENTS = [
     'from-indigo-600 to-blue-700',
     'from-pink-500 to-rose-600',
     'from-emerald-500 to-green-600',
-    'from-violet-600 to-purple-700',
+    'from-violet-400 to-purple-800',
     'from-cyan-500 to-blue-600',
     'from-rose-500 to-pink-600',
     'from-amber-500 to-orange-600',

@@ -13,6 +13,7 @@
 	import { getGradientForString } from '$lib/utilities';
 
 	import { deslugified, getGroupsByTopic, getSetsByTopic } from './utils';
+	import { get } from 'svelte/store';
 
 	const topic = $derived(deslugified(page.params.topic as string));
 	const courseCode = $derived(deslugified(page.params.courseCode as string));
@@ -117,16 +118,8 @@
 					{#each groups as group, index}
 						<div class="space-y-6">
 							<div class="flex items-end justify-between">
-								<h4 class="h5 relative inline-block">
-									<span class="font-semibold">
-										'{group.batch} Batch
-									</span>
-
-									<div
-										class="{getGradientForString(
-											topic ?? 'Default'
-										)} absolute -right-4 bottom-1 -left-2 -z-1 h-2 opacity-55"
-									></div>
+								<h4 class="h5 badge inline-block {getGradientForString(group.batch)}">
+									'{group.batch} Batch
 								</h4>
 								<div>
 									{group.questions.reduce((acc, question) => (acc += question.marks), 0)} marks
