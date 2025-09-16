@@ -85,10 +85,8 @@
 
 	let html = $state('');
 
-	$effect(() => {
-		const htmlWithoutEquations = renderMarkdown(markdown, figureFilter);
-		html = renderEquations(htmlWithoutEquations);
-	});
+	const htmlWithoutEquations = renderMarkdown(markdown, figureFilter);
+	html = renderEquations(htmlWithoutEquations);
 </script>
 
 {@html html}
