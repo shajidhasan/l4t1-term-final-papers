@@ -5,7 +5,7 @@
 	import { toaster } from '$lib/toaster';
 	import type { Question } from '$lib/types';
 
-	import RenderMarkdown from './RenderMarkdown.svelte';
+	import RenderMarkdown from '$lib/components/RenderMarkdown.svelte';
 
 	const { question }: { question: Question } = $props();
 
@@ -54,6 +54,5 @@
 		class="prose dark:prose-invert card prose-sm prose-headings:font-(family-name:--heading-font-family) max-w-full"
 	>
 		<RenderMarkdown markdown={question.solution} />
-		<!-- {@html } -->
 	</div>
 </div>
