@@ -24,11 +24,11 @@ Built by [sh4jid](https://sh4jid.me) for CUET ME students and anyone who might f
 
 | Course Code | Course Title | Credits | Instructors |
 |-------------|--------------|---------|-------------|
-| **ME413** | Power Plant Engineering | 3 | Dr. Salam, Dr. Rahman |
-| **ME417** | Refrigeration and Air-conditioning | 3 | Dr. Ahamed, Mr. Islam |
-| **ME431** | Machine Design II | 3 | Mr. Ahmmad, Mr. Ahmed |
-| **ME451** | Machine Tools and Tool Engineering | 4 | Dr. Rana, Mr. Masum |
-| **ME461** | Production and Operations Management | 4 | Dr. Rabbi, Dr. Hossain |
+| **ME413** | Power Plant Engineering | 3 | Dr. B. Salam, Dr. K. A. Rahman |
+| **ME417** | Refrigeration and Air-conditioning | 3 | Dr. J. U. Ahamed, M. A. Islam |
+| **ME431** | Machine Design II | 3 | S. M. Ahmmad, M. Ahmed |
+| **ME451** | Machine Tools and Tool Engineering | 4 | Dr. M. A. Rahman, R. M. Meraz |
+| **ME461** | Production and Operations Management | 4 | Dr. S. Rabbi, Dr. M. Hossain |
 
 ## Getting Started
 
