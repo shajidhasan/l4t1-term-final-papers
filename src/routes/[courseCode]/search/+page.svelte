@@ -124,6 +124,6 @@
 {/if}
 
 <FloatingAnchor onclick={() => goto('/' + courseCode, { replaceState: true })}>
-	<ArrowLeft class="size-4 md:size-6" />
+	<ArrowLeft class="size-4" />
 	<span>Back</span>
 </FloatingAnchor>

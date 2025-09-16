@@ -73,7 +73,7 @@
 	</div>
 
 	<FloatingAnchor onclick={() => goto('/', { replaceState: true })}>
-		<ArrowLeft class="size-4 md:size-6" />
+		<ArrowLeft class="size-4" />
 		<span>Back</span>
 	</FloatingAnchor>
 {:else}
