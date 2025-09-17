@@ -68,3 +68,9 @@
     @apply overflow-scroll;
   }
 }
+
+@layer components {
+  .search-highlight {
+    @apply text-primary-800-200 font-semibold;
+  }
+}

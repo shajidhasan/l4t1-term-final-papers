@@ -83,10 +83,7 @@
 		return html;
 	};
 
-	let html = $state('');
-
-	const htmlWithoutEquations = renderMarkdown(markdown, figureFilter);
-	html = renderEquations(htmlWithoutEquations);
+	let html = $derived(renderEquations(renderMarkdown(markdown, figureFilter)));
 </script>
 
 {@html html}

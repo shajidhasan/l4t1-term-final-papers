@@ -9,13 +9,14 @@
 	import type { Question } from '$lib/types';
 
 	import RenderMarkdown from './RenderMarkdown.svelte';
+	import { getGradientForString } from '$lib/utilities';
 
 	const { question }: { question: Question & SearchResult } = $props();
 
 	let highlighted = $derived(
 		question.text.replace(
 			new RegExp(`(${question.terms.join('|')})`, 'gi'),
-			'<mark class="bg-primary-100-900 text-primary-contrast-100-900 rounded px-1">$1</mark>'
+			'<span class="search-highlight">$1</span>'
 		)
 	);
 
@@ -56,8 +57,8 @@
 				<p
 					class="prose dark:prose-invert max-w-full flex-1 overflow-hidden text-xs sm:text-sm md:text-base"
 				>
-					<RenderMarkdown markdown={question.text} figureFilter />
-					<span class="badge preset-tonal-secondary my-2 text-xs">'{batch} Batch</span>
+					<RenderMarkdown markdown={highlighted} figureFilter />
+					<span class="badge {getGradientForString(batch)} my-2 text-xs">'{batch} Batch</span>
 				</p>
 			{/snippet}
 			{#snippet panel()}

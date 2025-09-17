@@ -15,7 +15,7 @@
 	import { courses } from '$lib/courses';
 	import { miniSearch } from '$lib/search';
 	import type { Question } from '$lib/types';
-	import { debounce, getGradientForString } from '$lib/utilities';
+	import { debounce } from '$lib/utilities';
 
 	const courseCode = $derived(page.params.courseCode);
 	const course = $derived(courses.find((c) => c.code === courseCode));
@@ -69,7 +69,7 @@
 	<div class="relative container mx-auto min-h-[calc(100vh-51px)] max-w-3xl p-4">
 		<div
 			class="absolute z-100 {top
-				? 'top-10'
+				? 'top-20'
 				: 'top-[40%]'} left-1/2 w-full -translate-x-1/2 -translate-y-1/2 p-4 transition-[top] duration-500"
 		>
 			<div class="relative flex justify-center">
@@ -94,7 +94,10 @@
 						bind:value={searchQuery}
 						class="ig-input"
 						type="search"
+						name="search-input"
 						placeholder="Search..."
+						autocomplete="off"
+						spellcheck="false"
 					/>
 				</div>
 				{#if !top}
@@ -106,7 +109,7 @@
 		</div>
 
 		{#if top}
-			<div class="mt-16 space-y-4" in:fade out:fade>
+			<div class="mt-32 space-y-4" in:fade out:fade>
 				{#each searchResults as question}
 					<SearchQuestion {question} />
 				{/each}
