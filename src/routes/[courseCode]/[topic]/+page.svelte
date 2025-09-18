@@ -13,7 +13,6 @@
 	import { getGradientForString } from '$lib/utilities';
 
 	import { deslugified, getGroupsByTopic, getSetsByTopic } from './utils';
-	import { get } from 'svelte/store';
 
 	const topic = $derived(deslugified(page.params.topic as string));
 	const courseCode = $derived(deslugified(page.params.courseCode as string));

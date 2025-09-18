@@ -3,6 +3,7 @@ import type { Question, QuestionSet } from "$lib/types";
 import { papersCollection } from "$lib/papers";
 
 export const deslugified = (s: string): string => {
+    if (s === "cnc_programming_&_technology") return "CNC Programming & Technology"
     const result = s
         .split('_')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
